@@ -1,1 +1,11 @@
+# Ignore dependencies
+/vendor
+/node_modules
+
+# Ignore environment files
+.env
+.env.*.backup
+
+# Ignore databases
 *.sqlite*
+/storage/*.sqlite
