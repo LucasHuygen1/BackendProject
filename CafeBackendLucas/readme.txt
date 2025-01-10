@@ -23,3 +23,7 @@ https://laraveldaily.com/post/add-first-admin-user-live-laravel
 
 //pfp uploaden en tonen op profiel
 https://laravelamit.medium.com/how-to-upload-profile-image-of-user-in-laravel-upload-profile-picture-in-laravel-registration-732e4a0d349f
+
+//middleware voor admin en user op te splitsen en de controllers 
+https://laracasts.com/discuss/channels/general-discussion/laravelbreeze-custom-redirection
+https://www.youtube.com/watch?v=G3UeClZPR4k

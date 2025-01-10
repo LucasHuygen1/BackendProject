@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminUserController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,3 +28,18 @@ require __DIR__.'/auth.php';
 route::get('admin/dashboard', [HomeController::class, 'index'])
     ->name('admin/dashboard')
     ->middleware(['auth', 'admin']);
+
+//route naar user panel voor admin.
+Route::middleware(['auth','admin'])->group(function () {
+
+    // full CRUD:
+    Route::resource('admin/users', AdminUserController::class)->names([
+        'index'   => 'admin.users.index',
+        'create'  => 'admin.users.create',
+        'store'   => 'admin.users.store',
+        'show'    => 'admin.users.show',
+        'edit'    => 'admin.users.edit',
+        'update'  => 'admin.users.update',
+        'destroy' => 'admin.users.destroy',
+    ]);
+});
