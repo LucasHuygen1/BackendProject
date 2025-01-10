@@ -47,6 +47,23 @@
             @endif
         </div>
 
+         <!-- verjaardag profiel -->
+        <div>
+            <x-input-label for="birthday" :value="__('Birthday')" />
+            <x-text-input id="birthday" name="birthday" type="date" class="mt-1 block w-full" :value="old('birthday', $user->birthday ? $user->birthday->format('Y-m-d') : '')" required autocomplete="bday" />
+            <x-input-error class="mt-2" :messages="$errors->get('birthday')" />
+        </div>
+
+         <!-- ABOUT -->
+         <!-- textarea gebruikt voor grotere box. -->
+        <div>
+            <x-input-label for="about" :value="__('About')" />
+            <textarea id="about" name="about" rows="5" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('about', $user->about) }}</textarea>
+            <x-input-error class="mt-2" :messages="$errors->get('about')" />
+        </div>
+
+
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

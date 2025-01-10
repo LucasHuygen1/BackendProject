@@ -17,10 +17,15 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+
+     //user kan alleen deze invullen, birthday, about en pfp extra.
     protected $fillable = [
-        'username',
+        'name',
         'email',
         'password',
+        'birthday',
+        'about',
+        'profile_photo',
     ];
 
     /**
@@ -43,6 +48,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'birthday' => 'date',
         ];
     }
 }

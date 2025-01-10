@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
     {
         //maak de eerste admin account aan met seeder
         User::create([
-            'username' => 'Admin',
+            'name' => 'Admin',
             'email' => 'admin@ehb.be',
             'password' => 'Password!321',
             'role' => 'admin',
