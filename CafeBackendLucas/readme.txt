@@ -1,5 +1,12 @@
 //café project Lucas Huygen Backend
 
+///HOE DIT PROJECT RUNNEN?
+
+///WAT HEB IK WAAR GEDAAN?
+
+
+
+///BRONVERMELDING
 
 //Gebruikt voor login / registratie
 breeze: https://laravel.com/docs/11.x/starter-kits#laravel-breeze
@@ -12,3 +19,7 @@ https://laravel.com/docs/11.x/migrations ==> gebruikt voor hoe migrations te run
 
 //eerste admin account aanmaken
 https://laraveldaily.com/post/add-first-admin-user-live-laravel
+
+
+//pfp uploaden en tonen op profiel
+https://laravelamit.medium.com/how-to-upload-profile-image-of-user-in-laravel-upload-profile-picture-in-laravel-registration-732e4a0d349f
