@@ -30,8 +30,6 @@ require __DIR__.'/auth.php';
 //route naar user panel voor admin.
 Route::middleware(['auth','admin'])->group(function () {
     // Admin Dashboard drinks management
-    Route::get('/admin/drinks', [AdminDrinkController::class, 'index'])->name('admin.drinks.index');
-    Route::resource('admin/drinks', AdminDrinkController::class)->except(['index']);
 
     Route::resource('admin/drinks', AdminDrinkController::class)->names([
         'index'   => 'admin.drinks.index',
@@ -42,12 +40,8 @@ Route::middleware(['auth','admin'])->group(function () {
         'update'  => 'admin.drinks.update',
         'destroy' => 'admin.drinks.destroy',
     ]);
-    
-    //route naar dashboard gebruikt homecontroller. 
-    route::get('/admin/dashboard', [HomeController::class, 'index'])
-    ->name('admin.dashboard');  
 
-    // full CRUD:
+    // full CRUD admin panel
     Route::resource('admin/users', AdminUserController::class)->names([
         'index'   => 'admin.users.index',
         'create'  => 'admin.users.create',
@@ -57,4 +51,18 @@ Route::middleware(['auth','admin'])->group(function () {
         'update'  => 'admin.users.update',
         'destroy' => 'admin.users.destroy',
     ]);
+
+    route::get('/admin/dashboard', [HomeController::class, 'index'])
+    ->name('admin.dashboard');  
+    
+    //Admin news management
+    Route::resource('admin/news', AdminNewsController::class)->names([
+        'index'   => 'admin.news.index',
+        'create'  => 'admin.news.create',
+        'store'   => 'admin.news.store',
+        'show'    => 'admin.news.show',
+        'edit'    => 'admin.news.edit',
+        'update'  => 'admin.news.update',
+        'destroy' => 'admin.news.destroy',
+        ]);
 });
