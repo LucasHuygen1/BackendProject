@@ -22,7 +22,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class AdminUserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //return view('admin.users.edit');
     }
 
     /**

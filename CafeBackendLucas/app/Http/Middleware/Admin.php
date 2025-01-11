@@ -21,7 +21,7 @@ class Admin
         //als role geen admin is terug naar default dashboard
         if(Auth::user()->role != 'admin')
         {
-            return redirect('dashboard');
+            abort(403, 'Unauthorized');
         }
 
         return $next($request);
