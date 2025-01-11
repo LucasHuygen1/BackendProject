@@ -32,6 +32,16 @@ Route::middleware(['auth','admin'])->group(function () {
     // Admin Dashboard drinks management
     Route::get('/admin/drinks', [AdminDrinkController::class, 'index'])->name('admin.drinks.index');
     Route::resource('admin/drinks', AdminDrinkController::class)->except(['index']);
+
+    Route::resource('admin/drinks', AdminDrinkController::class)->names([
+        'index'   => 'admin.drinks.index',
+        'create'  => 'admin.drinks.create',
+        'store'   => 'admin.drinks.store',
+        'show'    => 'admin.drinks.show',
+        'edit'    => 'admin.drinks.edit',
+        'update'  => 'admin.drinks.update',
+        'destroy' => 'admin.drinks.destroy',
+    ]);
     
     //route naar dashboard gebruikt homecontroller. 
     route::get('/admin/dashboard', [HomeController::class, 'index'])
