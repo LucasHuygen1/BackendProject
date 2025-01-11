@@ -19,6 +19,12 @@
                         Go to User Panel
                     </a>
                 </div>
+                <div>
+                    <a href="{{ route('admin.drinks.index') }}"
+                       class="">
+                        Go to drinks
+                    </a>
+                </div>
             </div>
         </div>
     </div>
