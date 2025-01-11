@@ -24,14 +24,13 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//route naar dashboard gebruikt homecontroller. 
-route::get('admin/dashboard', [HomeController::class, 'index'])
-    ->name('admin/dashboard')
-    ->middleware(['auth', 'admin']);
+
 
 //route naar user panel voor admin.
 Route::middleware(['auth','admin'])->group(function () {
-
+//route naar dashboard gebruikt homecontroller. 
+route::get('/admin/dashboard', [HomeController::class, 'index'])
+    ->name('admin.dashboard');  
     // full CRUD:
     Route::resource('admin/users', AdminUserController::class)->names([
         'index'   => 'admin.users.index',
