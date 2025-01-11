@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminDrinkController;
 
 
 
@@ -28,9 +29,14 @@ require __DIR__.'/auth.php';
 
 //route naar user panel voor admin.
 Route::middleware(['auth','admin'])->group(function () {
-//route naar dashboard gebruikt homecontroller. 
-route::get('/admin/dashboard', [HomeController::class, 'index'])
+    // Admin Dashboard drinks management
+    Route::get('/admin/drinks', [AdminDrinkController::class, 'index'])->name('admin.drinks.index');
+    Route::resource('admin/drinks', AdminDrinkController::class)->except(['index']);
+    
+    //route naar dashboard gebruikt homecontroller. 
+    route::get('/admin/dashboard', [HomeController::class, 'index'])
     ->name('admin.dashboard');  
+
     // full CRUD:
     Route::resource('admin/users', AdminUserController::class)->names([
         'index'   => 'admin.users.index',

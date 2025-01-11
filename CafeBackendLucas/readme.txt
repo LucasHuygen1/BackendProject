@@ -27,3 +27,9 @@ https://laravelamit.medium.com/how-to-upload-profile-image-of-user-in-laravel-up
 //middleware voor admin en user op te splitsen en de controllers 
 https://laracasts.com/discuss/channels/general-discussion/laravelbreeze-custom-redirection
 https://www.youtube.com/watch?v=G3UeClZPR4k
+
+//CRUD (user panel admin)
+https://www.youtube.com/watch?v=5DqNauW0eUY
+https://laravel.com/docs/11.x/controllers#resource-controllers
+
+
