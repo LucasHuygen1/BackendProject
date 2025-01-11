@@ -9,14 +9,15 @@
         @csrf
         @method('PUT')
 
+        <!-- username en email diabled, kan alleen rol wijzigen -->
         <div>
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="{{ $user->username }}" required>
+            <input type="text" id="username" name="username" value="{{ $user->name }}" disabled>
         </div>
 
         <div>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="{{ $user->email }}" required>
+            <input type="email" id="email" name="email" value="{{ $user->email }}" disabled>
         </div>
 
         <div>
@@ -27,6 +28,6 @@
             </select>
         </div>
 
-        <button type="submit">Update User</button>
+        <button type="submit" class="bg-blue-500 text-black px-4 py-2 rounded mt-4">Update User</button>
     </form>
 </x-app-layout>
