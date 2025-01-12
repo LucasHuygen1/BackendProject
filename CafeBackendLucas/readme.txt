@@ -32,4 +32,9 @@ https://www.youtube.com/watch?v=G3UeClZPR4k
 https://www.youtube.com/watch?v=5DqNauW0eUY
 https://laravel.com/docs/11.x/controllers#resource-controllers
 
+//kleuren probleem tailwind
+https://codedamn.com/news/frontend/how-to-fix-color-not-working-in-tailwind-css
+https://tailwindcss.com/docs/configuration
 
+//count 
+https://stackoverflow.com/questions/33676576/eloquent-laravel-how-to-get-a-row-count-from-a-get

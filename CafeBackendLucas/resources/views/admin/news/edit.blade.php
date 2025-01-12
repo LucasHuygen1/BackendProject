@@ -1,35 +1,48 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
             {{ __('Edit News') }}
         </h2>
     </x-slot>
 
-    <form method="POST" action="{{ route('admin.news.update', $news->id) }}">
-        @csrf
-        @method('PUT')
+    <div class="container mx-auto px-4 py-6">
+        <div class="bg-white shadow rounded-lg p-6">
+            <form method="POST" action="{{ route('admin.news.update', $news->id) }}">
+                @csrf
+                @method('PUT')
 
-        <div>
-            <label for="title">title</label>
-            <input type="text" id="title" name="title" value="{{ $news->title }}" required>
+                <!-- Title -->
+                <div class="mb-4">
+                    <label for="title" class="block text-gray-700 font-medium mb-2">Title</label>
+                    <input type="text" id="title" name="title" value="{{ $news->title }}" required
+                           class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500">
+                </div>
+
+                <!-- Content -->
+                <div class="mb-4">
+                    <label for="content" class="block text-gray-700 font-medium mb-2">Content</label>
+                    <textarea id="content" name="content" rows="4" required
+                              class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500">{{ $news->content }}</textarea>
+                </div>
+
+                <!-- Published At -->
+                <div class="mb-4">
+                    <label for="published_at" class="block text-gray-700 font-medium mb-2">Published At</label>
+                    <input type="datetime-local" id="published_at" name="published_at" value="{{ date('Y-m-d\TH:i', strtotime($news->published_at)) }}" required
+                           class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500">
+                </div>
+
+                <!-- Published By (Disabled) -->
+                <div class="mb-4">
+                    <label for="user_id" class="block text-gray-700 font-medium mb-2">Published by</label>
+                    <input type="text" id="user_id" name="user_id" value="{{ $news->user_id }}" disabled
+                           class="w-full border border-gray-300 rounded px-3 py-2 bg-gray-100">
+                </div>
+
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                    Update News
+                </button>
+            </form>
         </div>
-
-        <div>
-            <label for="content">content</label>
-            <input type="content" id="content" name="content" value="{{ $news->content }}" required>
-        </div>
-
-        <div>
-            <label for="published_at">published at</label>
-            <input type="published_at" id="published_at" name="published_at" value="{{ $news->published_at }}" required>
-        </div>
-
-        <div>
-            <label for="user_id">published by</label>
-            <input type="user_id" id="user_id" name="user_id" value="{{ $news->user_id }}" disabled>
-        </div>
-
-
-        <button type="submit" class="bg-blue-500 text-black px-4 py-2 rounded mt-4">Update news</button>
-    </form>
+    </div>
 </x-app-layout>

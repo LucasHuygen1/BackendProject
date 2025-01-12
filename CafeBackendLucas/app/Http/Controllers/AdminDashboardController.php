@@ -8,6 +8,10 @@ class AdminDashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $userCount = \App\Models\User::count();
+        $drinkCount = \App\Models\Drink::count();
+        $newsCount  = \App\Models\News::count();
+
+        return view('admin.dashboard', compact('userCount', 'drinkCount', 'newsCount'));
     }
 }

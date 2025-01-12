@@ -1,30 +1,38 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
             {{ __('Edit Drink') }}
         </h2>
     </x-slot>
 
-    <form method="POST" action="{{ route('admin.drinks.update', $drink->id) }}">
-        @csrf
-        @method('PUT')
+    <div class="container mx-auto px-4 py-6">
+        <div class="bg-white shadow rounded-lg p-6">
+            <form method="POST" action="{{ route('admin.drinks.update', $drink->id) }}">
+                @csrf
+                @method('PUT')
 
-        <div>
-            <label for="name">name</label>
-            <input type="text" id="name" name="name" value="{{ $drink->name }}" required>
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                    <input type="text" id="name" name="name" value="{{ $drink->name }}" required
+                           class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500">
+                </div>
+
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700 font-medium mb-2">Description</label>
+                    <input type="text" id="description" name="description" value="{{ $drink->description }}" required
+                           class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500">
+                </div>
+
+                <div class="mb-4">
+                    <label for="price" class="block text-gray-700 font-medium mb-2">Price</label>
+                    <input type="text" id="price" name="price" value="{{ $drink->price }}" required
+                           class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500">
+                </div>
+
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                    Update Drink
+                </button>
+            </form>
         </div>
-
-        <div>
-            <label for="description">description</label>
-            <input type="description" id="description" name="description" value="{{ $drink->description }}" required>
-        </div>
-
-        <div>
-            <label for="price">price</label>
-            <input type="price" id="price" name="price" value="{{ $drink->price }}" required>
-        </div>
-
-
-        <button type="submit" class="bg-blue-500 text-black px-4 py-2 rounded mt-4">Update Drink</button>
-    </form>
+    </div>
 </x-app-layout>
