@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminDrinkController;
 use App\Http\Controllers\AdminNewsController;
+use App\Http\Controllers\UserDashboardController;
+use App\Http\Controllers\AdminDashboardController;
 
 
 
@@ -14,10 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// user dahboard
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
+});
 
+// profile routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -30,8 +34,10 @@ require __DIR__.'/auth.php';
 
 //middleware voor admin, rol check + auth.
 Route::middleware(['auth','admin'])->group(function () {
-    // Admin Dashboard drinks management
+    // admin dashboard
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
+    // Admin Dashboard drinks management
     Route::resource('admin/drinks', AdminDrinkController::class)->names([
         'index'   => 'admin.drinks.index',
         'create'  => 'admin.drinks.create',
@@ -53,8 +59,6 @@ Route::middleware(['auth','admin'])->group(function () {
         'destroy' => 'admin.users.destroy',
     ]);
 
-    route::get('/admin/dashboard', [HomeController::class, 'index'])
-    ->name('admin.dashboard');  
     
     //Admin news management
     Route::resource('admin/news', AdminNewsController::class)->names([
