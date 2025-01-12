@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminDrinkController;
+use App\Http\Controllers\AdminNewsController;
 
 
 
@@ -27,7 +28,7 @@ require __DIR__.'/auth.php';
 
 
 
-//route naar user panel voor admin.
+//middleware voor admin, rol check + auth.
 Route::middleware(['auth','admin'])->group(function () {
     // Admin Dashboard drinks management
 

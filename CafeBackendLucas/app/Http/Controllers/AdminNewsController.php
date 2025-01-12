@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News;
 
 class AdminNewsController extends Controller
 {
@@ -11,7 +12,8 @@ class AdminNewsController extends Controller
      */
     public function index()
     {
-        //
+        $news = News::all(); // Return collection
+        return view('admin.news.index', compact('news'));
     }
 
     /**
@@ -19,46 +21,69 @@ class AdminNewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.news.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        public function store(Request $request)
+        {
+            $request->validate([
+                'title'   => 'required|string|max:255',
+                'content' => 'required|string',
+            ]);
+        
+            $data = $request->only(['title', 'content']);
+            $data['user_id'] = auth()->id(); // Automatically assign user_id
+        
+            // Create news item
+            News::create($data);
+        
+            // Redirect with success message
+            return redirect()->route('admin.news.index')->with('success', 'News created successfully!');
+        }
+    
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(News $news)
     {
-        //
+        return view('admin.news.edit', compact('news'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, News $news)
     {
-        //
+        $request->validate([
+            'title'        => 'required|string|max:255',
+            'content'      => 'required|string',
+            'published_at' => 'required|date',
+            'image'        => 'nullable|image',
+        ]);
+
+        $data = $request->only(['title', 'content', 'published_at']);
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('news', 'public');
+        }
+
+        $news->update($data);
+
+        // Redirect with success message
+        return redirect()->route('admin.news.index')->with('success', 'News updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(News $news)
     {
-        //
+        $news->delete();
+
+        return redirect()->route('admin.news.index')->with('success', 'News deleted successfully!');
     }
 }

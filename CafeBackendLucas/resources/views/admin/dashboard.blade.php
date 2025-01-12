@@ -25,6 +25,12 @@
                         Go to drinks
                     </a>
                 </div>
+                <div>
+                    <a href="{{ route('admin.news.index') }}"
+                       class="">
+                        Go to News
+                    </a>
+                </div>
             </div>
         </div>
     </div>
