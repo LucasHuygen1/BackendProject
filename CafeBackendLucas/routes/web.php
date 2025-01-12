@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminDrinkController;
 use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\AdminDashboardController;
-
+use App\Http\Controllers\NewsController;
 
 
 Route::get('/', function () {
@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
 });
+
+Route::get('/news', [NewsController::class, 'index'])
+    ->name('news.index');
 
 // profile routes
 Route::middleware('auth')->group(function () {

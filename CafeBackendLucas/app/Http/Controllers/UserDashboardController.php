@@ -9,7 +9,7 @@ class UserDashboardController extends Controller
 {
     public function index()
     {
-        $drinks = Drink::all(); // Fetch all drinks
+        $drinks = Drink::all();
         return view('user.dashboard', compact('drinks'));
     }
 }
