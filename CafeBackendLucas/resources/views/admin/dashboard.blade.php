@@ -7,35 +7,34 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <!-- Greeting / Info -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class="mb-4 text-gray-900">
                     {{ __("You're logged in as an admin!") }}
                 </div>
             </div>
 
-            <!-- Overview Cards -->
+            <!-- Overview  -->
             <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Users Card -->
+                <!-- Users  -->
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-lg font-bold text-gray-800">Users</h3>
                     <p class="text-3xl text-gray-700 mt-2">{{ $userCount }}</p>
                 </div>
 
-                <!-- Drinks Card -->
+                <!-- Drinks  -->
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-lg font-bold text-gray-800">Drinks</h3>
                     <p class="text-3xl text-gray-700 mt-2">{{ $drinkCount }}</p>
                 </div>
 
-                <!-- News Card -->
+                <!-- News  -->
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-lg font-bold text-gray-800">News</h3>
                     <p class="text-3xl text-gray-700 mt-2">{{ $newsCount }}</p>
                 </div>
             </div>
 
-            <!-- Quick Navigation Links -->
+            <!-- nav -->
             <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a href="{{ route('admin.users.index') }}" 
                    class="bg-blue-500 hover:bg-blue-600 text-white text-center font-medium px-4 py-3 rounded shadow">

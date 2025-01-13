@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Public Profile page
+Route::get('/profile/{name}', [ProfileController::class, 'show'])->name('profile.show');
+
+// Public Users list (with search)
+Route::get('/users', [ProfileController::class, 'index'])->name('profile.index');
+
 // user dahboard
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');

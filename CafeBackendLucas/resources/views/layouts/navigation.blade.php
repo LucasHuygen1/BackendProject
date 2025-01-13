@@ -24,6 +24,11 @@
                             {{ __('News') }}
                         </x-nav-link>
                     @endif
+
+                    <!-- Public Profiles Tab (visible for all users) -->
+                    <x-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
+                        {{ __('Profiles') }}
+                    </x-nav-link>
                 </div>
             </div>
 
