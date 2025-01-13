@@ -9,11 +9,20 @@ use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\FaqController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+//routes voor idereeen
+
+//route FAQ publiek
+//public index voor normake users
+Route::get('/faq', [FaqController::class, 'publicIndex'])->name('faq.public.index');
+Route::get('/faq/{id}', [FaqController::class, 'show'])->name('faq.public.show');
+
 
 // Public Profile page
 Route::get('/profile/{name}', [ProfileController::class, 'show'])->name('profile.show');
@@ -28,7 +37,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::get('/news', [NewsController::class, 'index'])
     ->name('news.index');
+//---------------------------------------------------------------------------------------
+// einde routes publiek
 
+
+//routes users
 // profile routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -38,8 +51,11 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+//--------------------------------------------------------------------------------------------------
+//einde route users
 
 
+//route admins
 //middleware voor admin, rol check + auth.
 Route::middleware(['auth','admin'])->group(function () {
     // admin dashboard
@@ -78,4 +94,18 @@ Route::middleware(['auth','admin'])->group(function () {
         'update'  => 'admin.news.update',
         'destroy' => 'admin.news.destroy',
         ]);
+    
+    //FAQ CRUD
+    Route::resource('admin/faq', FaqController::class)->names([
+        'index'   => 'admin.faq.index',
+        'create'  => 'admin.faq.create',
+        'store'   => 'admin.faq.store',
+        'show'    => 'admin.faq.show',
+        'edit'    => 'admin.faq.edit',
+        'update'  => 'admin.faq.update',
+        'destroy' => 'admin.faq.destroy',
+        ]);
 });
+
+//--------------------------------------------------------------------------------------------------
+//einde route admins

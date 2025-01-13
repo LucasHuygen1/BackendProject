@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 
-class FaqSeeder extends Seeder
+class FaqsSeeder extends Seeder
 {
     public function run()
     {

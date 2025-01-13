@@ -42,5 +42,6 @@ https://stackoverflow.com/questions/33676576/eloquent-laravel-how-to-get-a-row-c
 //migration foreign key FAQ
 https://stackoverflow.com/questions/26437342/laravel-migration-best-way-to-add-foreign-key
 
-//pivot
+//pivot, many to many
 https://laravel.com/docs/11.x/eloquent-relationships#many-to-many
+https://www.youtube.com/watch?v=nE129JewqbU

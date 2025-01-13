@@ -19,16 +19,27 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
-                        <!-- News Tab for Users Only -->
+                        <!--news -->
                         <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
                             {{ __('News') }}
                         </x-nav-link>
                     @endif
 
-                    <!-- Public Profiles Tab (visible for all users) -->
+                    <!-- profielen  -->
                     <x-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
                         {{ __('Profiles') }}
                     </x-nav-link>
+
+                    <!-- verschillende pagina voor admin en user -->
+                    @if(Auth::user()->role === 'admin')
+                        <x-nav-link :href="route('admin.faq.index')" :active="request()->routeIs('admin.faq.index')">
+                            {{ __('FAQ') }}
+                        </x-nav-link>
+                    @else
+                        <x-nav-link :href="route('faq.public.index')" :active="request()->routeIs('faq.public.index')">
+                            {{ __('FAQ') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -50,12 +61,9 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <x-dropdown-link :href="route('logout')"
-                                             onclick="event.preventDefault();
-                                                         this.closest('form').submit();">
+                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
