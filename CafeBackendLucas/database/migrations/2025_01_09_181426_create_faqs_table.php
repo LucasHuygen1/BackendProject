@@ -10,6 +10,17 @@ class CreateFaqsTable extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
+            
+            $table->unsignedBigInteger('user_id');
+            
+            //create index
+            $table->index('user_id');
+            
+            // Create a foreign key constraint on user_id with action on cascade
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
+
             $table->string('question');
             $table->text('answer');
             $table->timestamps();

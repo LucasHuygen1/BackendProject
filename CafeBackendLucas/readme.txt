@@ -38,3 +38,9 @@ https://tailwindcss.com/docs/configuration
 
 //count 
 https://stackoverflow.com/questions/33676576/eloquent-laravel-how-to-get-a-row-count-from-a-get
+
+//migration foreign key FAQ
+https://stackoverflow.com/questions/26437342/laravel-migration-best-way-to-add-foreign-key
+
+//pivot
+https://laravel.com/docs/11.x/eloquent-relationships#many-to-many

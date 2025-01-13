@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             DrinkSeeder::class,
             NewsSeeder::class,
+            FaqsSeeder::class,
         ]);
        
     }

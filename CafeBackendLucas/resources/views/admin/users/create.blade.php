@@ -10,7 +10,7 @@
             <form method="POST" action="{{ route('admin.users.store') }}">
                 @csrf
 
-                <!-- Username -->
+                <!-- Username name in db -->
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 font-medium mb-2">Username</label>
                     <input type="text" id="name" name="name" required
