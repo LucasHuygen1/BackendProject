@@ -5,6 +5,9 @@ const newsRoutes = require('./routes/news'); //routes van news
 const app = express();
 const port = process.env.PORT || 3000;
 
+//JSON parser
+app.use(express.json()); 
+
 // Gebruik de routes
 app.use('/api', newsRoutes);
 
