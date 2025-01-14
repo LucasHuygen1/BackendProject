@@ -51,3 +51,6 @@ https://www.youtube.com/watch?v=nE129JewqbU
 //setup
 https://www.youtube.com/watch?v=fgTGADljAeg
 https://www.youtube.com/watch?v=EN6Dx22cPRI
+
+//routes
+https://medium.com/@avanthikameenakshi/building-restful-api-with-nodejs-and-mysql-in-10-min-ff740043d4be
