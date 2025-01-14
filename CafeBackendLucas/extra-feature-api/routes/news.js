@@ -5,7 +5,7 @@ const { body, validationResult } = require('express-validator');
 
 // GET alles
 router.get('/news', (req, res) => {
-    const query = 'SELECT * FROM news';
+    const query = 'SELECT * FROM news ORDER BY title';
     db.query(query, (err, results) => {
         if (err) {
             console.error('Fout bij ophalen van nieuws:', err);

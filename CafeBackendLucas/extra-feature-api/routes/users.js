@@ -5,7 +5,7 @@ const { body, validationResult } = require('express-validator');
 
 // GET alles
 router.get('/users', (req, res) => {
-    const query = 'SELECT * FROM users';
+    const query = 'SELECT * FROM users ORDER BY name';
     db.query(query, (err, results) => {
         if (err) {
             console.error('Fout bij ophalen van user:', err);
