@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentatie</title>
+</head>
+<body>
+    <h1>API Documentatie</h1>
+
+    <h2>Nieuws Endpoints</h2>
+
+    <h3>GET /news</h3>
+    <p>Haalt alle nieuwsartikelen op.</p>
+
+    <h3>GET /news/:id</h3>
+    <p>Haalt een nieuwsartikel op basis van ID.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><strong>id</strong> - ID van het nieuwsartikel.</li>
+    </ul>
+
+    <h3>POST /news</h3>
+    <p>Voegt een nieuw nieuwsartikel toe.</p>
+    <p><strong>Request Body:</strong></p>
+    <pre>
+    {
+        "title": "Breaking News",
+        "content": "This is a breaking news article",
+        "published_at": "2025-01-13"
+    }
+    </pre>
+
+
+    <h3>PUT /news/:id</h3>
+    <p>Werkt een bestaand nieuwsartikel bij.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><strong>id</strong> - ID van het nieuwsartikel.</li>
+    </ul>
+    <p><strong>Request Body:</strong></p>
+    <pre>
+    {
+        "title": "Updated News Title",
+        "content": "This is the updated content of the news article.",
+        "published_at": "2025-01-14"
+    }
+    </pre>
+
+    <h3>DELETE /news/:id</h3>
+    <p>Verwijdert een nieuwsartikel.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><strong>id</strong> - ID van het nieuwsartikel.</li>
+    </ul>
+
+    <h2>Users Endpoints</h2>
+
+    <h3>GET /users</h3>
+    <p>Haalt alle gebruikers op.</p>
+
+    <h3>GET /users/:id</h3>
+    <p>Haalt een gebruiker op basis van ID.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><strong>id</strong> - ID van de gebruiker.</li>
+    </ul>
+
+    <h3>POST /users</h3>
+    <p>Voegt een nieuwe gebruiker toe.</p>
+    <p><strong>Request Body:</strong></p>
+    <pre>
+    {
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "password": "securepassword",
+        "birthday": "1990-01-01",
+        "about": "I am a new user",
+        "role": "user",
+        "created_at": "2025-01-13"
+    }
+    </pre>
+
+    <h3>PUT /users/:id</h3>
+    <p>Werkt een bestaande gebruiker bij.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><strong>id</strong> - ID van de gebruiker.</li>
+    </ul>
+    <p><strong>Request Body:</strong></p>
+    <pre>
+    {
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "password": "newsecurepassword",
+        "birthday": "1990-01-01",
+        "about": "Updated information",
+        "role": "user",
+        "created_at": "2025-01-14"
+    }
+    </pre>
+
+    <h3>DELETE /users/:id</h3>
+    <p>Verwijdert een gebruiker.</p>
+    <p><strong>Parameters:</strong></p>
+    <ul>
+        <li><strong>id</strong> - ID van de gebruiker.</li>
+    </ul>
+</body>
+</html>

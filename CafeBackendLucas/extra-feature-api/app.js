@@ -10,6 +10,9 @@ const port = process.env.PORT || 3000;
 //JSON parser
 app.use(express.json()); 
 
+//documentatie
+app.use('/index', express.static('documentatie'));
+
 // Gebruik de routes
 app.use('/api', newsRoutes);
 app.use('/api', usersRoutes);
