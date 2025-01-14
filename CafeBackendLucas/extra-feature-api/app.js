@@ -27,3 +27,17 @@ const port = 3000;
 app.listen(port, () => {
     console.log(`Server gestart op http://localhost:${port}`);
 });
+
+
+// GET-route voor nieuwsartikelen
+app.get('/api/news', (req, res) => {
+    const query = 'SELECT * FROM news';
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error('Fout bij ophalen van nieuwsartikelen:', err);
+            res.status(500).json({ error: 'Server error' });
+            return;
+        }
+        res.json(results);
+    });
+});
