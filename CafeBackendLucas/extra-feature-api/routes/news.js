@@ -37,6 +37,7 @@ router.get('/news/:id', (req, res) => {
 // POST
 router.post('/news', (req, res) => {
     const { title, content, published_at } = req.body;
+    //user id zetten we altijd op 1 anders error
     const query = 'INSERT INTO news (title, content, published_at, user_id) VALUES (?, ?, ?, 1)';
 
     db.query(query, [title, content, published_at], (err, results) => {
