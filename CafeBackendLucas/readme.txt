@@ -54,3 +54,6 @@ https://www.youtube.com/watch?v=EN6Dx22cPRI
 
 //routes
 https://medium.com/@avanthikameenakshi/building-restful-api-with-nodejs-and-mysql-in-10-min-ff740043d4be
+
+//validatie
+https://express-validator.github.io/docs/

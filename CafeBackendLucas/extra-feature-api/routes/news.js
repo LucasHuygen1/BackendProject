@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const { body, validationResult } = require('express-validator');
 
 // GET alles
 router.get('/news', (req, res) => {
@@ -35,7 +36,14 @@ router.get('/news/:id', (req, res) => {
 });
 
 // POST
-router.post('/news', (req, res) => {
+router.post('/news', [
+    body('published_at').isDate().withMessage('moet datum zijn'),
+    body('content').notEmpty().withMessage('Content mag niet leeg zijn'),
+    body('title').notEmpty().withMessage('Content mag niet leeg zijn'),
+    body('published_at').notEmpty().withMessage('Content mag niet leeg zijn'),
+],
+
+(req, res) => {
     const { title, content, published_at } = req.body;
     //user id zetten we altijd op 1 anders error
     const query = 'INSERT INTO news (title, content, published_at, user_id) VALUES (?, ?, ?, 1)';
@@ -52,7 +60,14 @@ router.post('/news', (req, res) => {
 });
 
 // PUT
-router.put('/news/:id', (req, res) => {
+router.put('/news/:id', [
+    body('published_at').isDate().withMessage('moet datum zijn'),
+    body('content').notEmpty().withMessage('Content mag niet leeg zijn'),
+    body('title').notEmpty().withMessage('Content mag niet leeg zijn'),
+    body('published_at').notEmpty().withMessage('Content mag niet leeg zijn'),
+],
+
+(req, res) => {
     const { title, content, published_at } = req.body;
     const query = 'UPDATE news SET title = ?, content = ?, published_at = ? WHERE id = ?';
 
