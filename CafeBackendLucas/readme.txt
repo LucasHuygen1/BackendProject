@@ -45,3 +45,8 @@ https://stackoverflow.com/questions/26437342/laravel-migration-best-way-to-add-f
 //pivot, many to many
 https://laravel.com/docs/11.x/eloquent-relationships#many-to-many
 https://www.youtube.com/watch?v=nE129JewqbU
+
+//Project 2
+
+//setup
+https://www.youtube.com/watch?v=fgTGADljAeg
