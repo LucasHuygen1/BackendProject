@@ -20,4 +20,11 @@ class News extends Model
     protected $casts = [
         'published_at' => 'datetime',
     ];
+
+
+    //voor de naam van user te bereiken
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
 }

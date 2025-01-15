@@ -22,7 +22,7 @@
                               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500">{{ old('answer') }}</textarea>
                 </div>
                 
-                <!-- If using many-to-many for categories: -->
+                <!-- voor categorien -->
                 <div class="mb-4">
                     <label for="categories" class="block text-gray-700 font-medium mb-2">Categories</label>
                     <select name="category_ids[]" id="categories" multiple

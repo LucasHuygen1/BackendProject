@@ -41,7 +41,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $newsItem->title }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ Str::limit($newsItem->content, 50) }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $newsItem->published_at }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $newsItem->user_id }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $newsItem->user->name ?? 'Unknown' }}</td>
                             <td class="px-6 py-4 whitespace-nowrap space-x-2">
                                 <!-- Edit Button -->
                                 <a href="{{ route('admin.news.edit', $newsItem->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded">

@@ -24,7 +24,7 @@
                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm px-3 py-2 focus:outline-none focus:ring focus:border-blue-500"></textarea>
                 </div>
 
-                <!-- Image Upload (Optional) -->
+                <!-- Image Upload -->
                 <div class="mb-4">
                     <label for="image" class="block text-sm font-medium text-gray-700">Image (Optional)</label>
                     <input type="file" name="image" id="image"

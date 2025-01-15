@@ -27,23 +27,29 @@ class AdminNewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-        public function store(Request $request)
-        {
-            $request->validate([
-                'title'   => 'required|string|max:255',
-                'content' => 'required|string',
-            ]);
-        
-            $data = $request->only(['title', 'content']);
-            $data['user_id'] = auth()->id(); // Automatically assign user_id
-        
-            // Create news item
-            News::create($data);
-        
-            // Redirect with success message
-            return redirect()->route('admin.news.index')->with('success', 'News created successfully!');
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title'        => 'required|string|max:255',
+            'content'      => 'required|string',
+            'image'        => 'nullable|image',
+            'published_at' => 'required|date',
+        ]);
+
+        $data = $request->only(['title', 'content', 'published_at']);
+        $data['user_id'] = auth()->id(); // Automatically assign user_id
+
+        // image
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('news', 'public');
         }
-    
+
+        // create
+        News::create($data);
+
+        // succes
+        return redirect()->route('admin.news.index')->with('success', 'News created successfully!');
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -73,7 +79,7 @@ class AdminNewsController extends Controller
 
         $news->update($data);
 
-        // Redirect with success message
+        // redirect succes
         return redirect()->route('admin.news.index')->with('success', 'News updated successfully!');
     }
 

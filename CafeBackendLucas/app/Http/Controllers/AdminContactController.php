@@ -12,7 +12,7 @@ class AdminContactController extends Controller
      */
     public function index()
     {
-        //op basis van datum, laatste laatst
+        //op basis van datum, laatste eerst
         $contacts = ContactForm::latest()->paginate(10);
         return view('admin.contact.index', compact('contacts'));
     }
