@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
+
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
@@ -12,6 +12,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     
+                    @auth
                         <x-nav-link 
                             :href="Auth::user()->role === 'admin' ? route('admin.dashboard') : route('dashboard')" 
                             :active="request()->routeIs('dashboard') || request()->routeIs('admin.dashboard')">
@@ -23,23 +24,22 @@
                         </x-nav-link>
                     @endauth
 
-                    <!-- News (Accessible to Everyone) -->
+                    <!-- News iedereen-->
                     <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
                         {{ __('News') }}
                     </x-nav-link>
 
-                    <!-- Profiles (Accessible to Everyone) -->
+                    <!-- Profiles iedereen -->
                     <x-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
                         {{ __('Profiles') }}
                     </x-nav-link>
 
-                    <!-- FAQ (Accessible to Everyone) -->
+                    <!-- FAQ iedereen -->
                     <x-nav-link :href="route('faq.public.index')" :active="request()->routeIs('faq.public.index')">
                         {{ __('FAQ') }}
                     </x-nav-link>
 
-                    <!-- Contact: 
-                         Voor users tonen we de normale contactpagina; 
+                    <!-- Contact: Voor users tonen we de normale contactpagina;
                          admins zien hun eigen admin contact overzicht -->
                     @auth
                         @if(Auth::user()->role !== 'admin')
@@ -90,7 +90,7 @@
                         </x-slot>
                     </x-dropdown>
                 @else
-                    <!-- Login & Register for Guests -->
+                    <!-- Login & Register guest -->
                     <div class="space-x-4">
                         <a href="{{ route('login') }}" class="text-gray-700 hover:text-blue-500">Login</a>
                         <a href="{{ route('register') }}" class="text-gray-700 hover:text-blue-500">Register</a>
