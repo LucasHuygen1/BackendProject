@@ -10,9 +10,13 @@ use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
-use App\Http\Controllers\ContactController;
 use App\Mail\TestMail;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\ContactController;
+
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
 
 Route::get('/send-test-email', function () {
     $messageContent = "Dit is een testbericht vanuit mijn Laravel-app via Mailtrap!";
