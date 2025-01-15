@@ -27,7 +27,7 @@ Route::get('/send-test-email', function () {
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
 
 
@@ -48,9 +48,7 @@ Route::get('/profile/{name}', [ProfileController::class, 'show'])->name('profile
 Route::get('/users', [ProfileController::class, 'index'])->name('profile.index');
 
 // user dahboard
-Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
-});
 
 Route::get('/news', [NewsController::class, 'index'])
     ->name('news.index');
