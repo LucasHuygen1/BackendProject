@@ -20,6 +20,11 @@
                             <div class="text-gray-700">
                                 {{ $newsItem->content }}
                             </div>
+                            @if($newsItem->image)
+                                <img src="{{ asset('storage/' . $newsItem->image) }}" alt="{{ $newsItem->title }}" class="h-25 w-30 object-cover rounded">
+                            @else
+                                <span class="text-gray-500"></span>
+                            @endif
                         </div>
                     @endforeach
                 @endif
