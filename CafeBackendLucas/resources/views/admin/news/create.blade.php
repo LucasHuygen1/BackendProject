@@ -26,7 +26,7 @@
 
                 <!-- Image Upload -->
                 <div class="mb-4">
-                    <label for="image" class="block text-sm font-medium text-gray-700">Image (Optional)</label>
+                    <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
                     <input type="file" name="image" id="image"
                            class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer focus:outline-none">
                 </div>

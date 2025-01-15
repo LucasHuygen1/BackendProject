@@ -29,20 +29,26 @@ class AdminDrinkController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate
+        // valideer de invoer
         $request->validate([
             'name'        => 'required|string|max:255',
             'description' => 'nullable|string',
+            'image'       => 'nullable|image',
             'price'       => 'required|numeric',
         ]);
 
-        Drink::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-        ]);
+        // array data
+        $data = $request->only(['name', 'description', 'price']);
 
-        // succeeded
+        //image
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('drinks', 'public');
+        }
+
+        // create
+        Drink::create($data);
+
+        // succesmelding
         return redirect()->route('admin.drinks.index')->with('success', 'Drink created successfully!');
     }
 
@@ -67,20 +73,26 @@ class AdminDrinkController extends Controller
      */
     public function update(Request $request, Drink $drink)
     {
-        // Validate
+        // Valideer de invoer
         $request->validate([
             'name'        => 'required|string|max:255',
             'description' => 'nullable|string',
+            'image'       => 'nullable|image',
             'price'       => 'required|numeric',
         ]);
 
-        $drink->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-        ]);
+        // array met geg vullen
+        $data = $request->only(['name', 'description', 'price']);
 
-        // succeeded
+        // image
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('drinks', 'public');
+        }
+
+        // update
+        $drink->update($data);
+
+        // succesmelding
         return redirect()->route('admin.drinks.index')->with('success', 'Drink updated successfully!');
     }
 
@@ -89,7 +101,6 @@ class AdminDrinkController extends Controller
      */
     public function destroy(Drink $drink)
     {
-        
         $drink->delete();
 
         return redirect()->route('admin.drinks.index')->with('success', 'Drink deleted successfully!');

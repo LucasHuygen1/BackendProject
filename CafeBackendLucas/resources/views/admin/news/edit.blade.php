@@ -7,7 +7,7 @@
 
     <div class="container mx-auto px-4 py-6">
         <div class="bg-white shadow rounded-lg p-6">
-            <form method="POST" action="{{ route('admin.news.update', $news->id) }}">
+            <form method="POST" action="{{ route('admin.news.update', $news->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -35,8 +35,21 @@
                 <!-- Published By (Disabled) -->
                 <div class="mb-4">
                     <label for="user_id" class="block text-gray-700 font-medium mb-2">Published by</label>
-                    <input type="text" id="user_id" name="user_id" value="{{ $news->user_id }}" disabled
+                    <input type="text" id="user_id" name="user_id" value="{{ $news->user->name ?? 'Unknown' }}" disabled
                            class="w-full border border-gray-300 rounded px-3 py-2 bg-gray-100">
+                </div>
+
+                <!-- Image Upload -->
+                <div class="mb-4">
+                    <label for="image" class="block text-gray-700 font-medium mb-2">Image</label>
+                    <input type="file" id="image" name="image"
+                           class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500">
+                    @if($news->image)
+                        <div class="mt-4">
+                            <span class="text-gray-700 font-medium">Current Image:</span>
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" class="h-32 w-auto object-cover mt-2 rounded">
+                        </div>
+                    @endif
                 </div>
 
                 <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
