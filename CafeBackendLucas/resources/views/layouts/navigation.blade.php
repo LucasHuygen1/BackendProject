@@ -19,7 +19,7 @@
                             {{ Auth::user()->role === 'admin' ? __('Admin Dashboard') : __('Dashboard') }}
                         </x-nav-link>
                     @else
-                        <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     @endauth
@@ -110,7 +110,7 @@
                     {{ Auth::user()->role === 'admin' ? __('Admin Dashboard') : __('Dashboard') }}
                 </x-responsive-nav-link>
             @else
-                <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-responsive-nav-link>
             @endauth
