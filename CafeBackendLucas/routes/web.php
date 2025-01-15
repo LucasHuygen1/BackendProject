@@ -13,6 +13,7 @@ use App\Http\Controllers\FaqController;
 use App\Mail\TestMail;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminContactController;
 
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
@@ -74,6 +75,12 @@ require __DIR__.'/auth.php';
 //route admins
 //middleware voor admin, rol check + auth.
 Route::middleware(['auth','admin'])->group(function () {
+    //contact admin
+    Route::resource('admin/contact', AdminContactController::class)->names([
+        'index'   => 'admin.contact.index',
+        'show'    => 'admin.contact.show',
+    ]);
+    
     // admin dashboard
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 

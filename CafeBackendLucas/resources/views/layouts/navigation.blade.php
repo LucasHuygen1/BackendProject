@@ -41,10 +41,15 @@
                         </x-nav-link>
                     @endif
 
-                    <!-- Contact -->
-                    <x-nav-link :href="route('contact.show')" :active="request()->routeIs('contact.show')">
-                        {{ __('Contact') }}
-                    </x-nav-link>
+                    @if(Auth::user()->role === 'admin')
+                        <x-nav-link :href="route('admin.contact.index')" :active="request()->routeIs('admin.contact.index')">
+                            {{ __('Contact') }}
+                        </x-nav-link>
+                    @else
+                        <x-nav-link :href="route('contact.show')" :active="request()->routeIs('contact.show')">
+                            {{ __('Contact') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 

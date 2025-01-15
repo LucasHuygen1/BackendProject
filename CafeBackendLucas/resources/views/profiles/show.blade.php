@@ -28,7 +28,7 @@
             <div class="mt-6">
                 <h4 class="text-xl font-bold mb-2">About Me</h4>
                 <p class="text-gray-700">
-                    {{ $user->about_me ?? 'No description provided.' }}
+                    {{ $user->about ?? 'No description provided.' }}
                 </p>
             </div>
         </div>
