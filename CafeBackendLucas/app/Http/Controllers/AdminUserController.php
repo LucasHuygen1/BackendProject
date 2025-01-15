@@ -34,14 +34,14 @@ class AdminUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
             'role' => 'required|in:user,admin',
         ]);
 
         User::create([
-            'name' => $request->username,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
