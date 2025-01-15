@@ -10,12 +10,24 @@ use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ContactController;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/send-test-email', function () {
+    $messageContent = "Dit is een testbericht vanuit mijn Laravel-app via Mailtrap!";
+    Mail::to(config('mail.admin_address'))->send(new TestMail($messageContent));
+    return "Test email verzonden!";
+});
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 //routes voor idereeen
 
 //route FAQ publiek
@@ -101,7 +113,7 @@ Route::middleware(['auth','admin'])->group(function () {
         'create'  => 'admin.faq.create',
         'store'   => 'admin.faq.store',
         'show'    => 'admin.faq.show',
-        'edit'    => 'admin.faq.edit',
+        'edit'    => 'admin.faq.edit',  
         'update'  => 'admin.faq.update',
         'destroy' => 'admin.faq.destroy',
         ]);

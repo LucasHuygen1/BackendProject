@@ -113,4 +113,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    //ander null error 
+    //admin uit env file halen
+    'admin_address' => env('MAIL_ADMIN_ADDRESS', 'admin@example.com'),
+
 ];

@@ -57,3 +57,6 @@ https://medium.com/@avanthikameenakshi/building-restful-api-with-nodejs-and-mysq
 
 //validatie
 https://express-validator.github.io/docs/
+
+
+https://stackoverflow.com/questions/71156385/laravel-9-symfonymailer-error-an-email-must-have-a-to-cc-or-bcc-header
