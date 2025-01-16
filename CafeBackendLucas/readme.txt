@@ -2,6 +2,86 @@
 
 ///HOE DIT PROJECT RUNNEN?
 
+Project 1 runnen:
+
+Zorg ervoor dat je de volgende software hebt geïnstalleerd:
+
+PHP (versie 8.x of hoger)
+Composer
+Node.js (met npm)
+Git
+Database (bijvoorbeeld MySQL of een andere compatibele database)
+Mailtrap (voor het testen van e-mailfunctionaliteit)
+
+- git clone van het project en ga naar het prokect folder:
+git clone <REPOSITORY_URL>
+cd <PROJECT_FOLDER>
+
+- alle php dependencies installeren:
+composer install
+
+- js dependencies:
+npm install
+
+- maak een .env bestand aan en stel daar jouw database instellingen in. vb:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
+
+-voor mail versturing heb ik gebruik gemaakt van mailtrap om deze te testen, 
+ als je geen mailtrap wil gebruiken configureer dan je eigen SMPT-server
+ vul volgende gegevens in je .env om deze ook te testen:
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=b89c6ef46c7ea7
+MAIL_PASSWORD=712d301fcb78d3
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=noreply@jouwdomein.nl
+MAIL_FROM_NAME="${APP_NAME}"
+MAIL_ADMIN_ADDRESS=admin@example.com
+
+- App-sleutel genereren Genereer een applicatiesleutel met Artisan:
+php artisan key:generate
+
+- Migraties en seeders uitvoeren Voer de database-migraties en -seeders uit:
+php artisan migrate --seed
+
+nu kan je de ontwikkelserver starten met volgende commandos
+php-server:
+php artisan serve
+
+front-end assets:
+npm run dev
+
+----------------------------------------------------------------------------------------
+
+Project 2 runnen:
+
+- Verplaats je naar de map waar de API zich bevindt:
+cd extra-features-api
+
+- installeer de dependencies
+npm install
+
+- .env file maken (je kan dezelfde database config gebruiken als in project 1)
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
+
+- starten
+npm run starte
+
+nu kan je naar http://localhost:3000/index/ gaan en de documentatie volgen
+
+
+
 ///WAT HEB IK WAAR GEDAAN?
 
 
