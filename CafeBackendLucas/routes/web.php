@@ -14,16 +14,15 @@ use App\Mail\TestMail;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminContactController;
-
-Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+use App\Http\Controllers\CommentController;
 
 
-Route::get('/send-test-email', function () {
-    $messageContent = "Dit is een testbericht vanuit mijn Laravel-app via Mailtrap!";
-    Mail::to(config('mail.admin_address'))->send(new TestMail($messageContent));
-    return "Test email verzonden!";
-});
+//
+//Route::get('/send-test-email', function () {
+  //  $messageContent = "Dit is een testbericht vanuit mijn Laravel-app via Mailtrap!";
+    //Mail::to(config('mail.admin_address'))->send(new TestMail($messageContent));
+    //return "Test email verzonden!";
+//});
 
 
 Route::get('/', function () {
@@ -31,8 +30,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 //routes voor idereeen
 
 //route FAQ publiek
@@ -62,6 +59,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    //comments
+    Route::post('/drinks/{drink}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::get('/drinks/{drink}', [UserDashboardController::class, 'show'])->name('drinks.show');
+    //contact
+    Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+    Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
 });
 
 require __DIR__.'/auth.php';

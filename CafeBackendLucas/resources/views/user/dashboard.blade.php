@@ -11,7 +11,8 @@
             <!-- Drinks Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach($drinks as $drink)
-                    <div class="bg-white shadow rounded-lg overflow-hidden">
+                    <!-- link naar specifieke drink -->
+                    <a href="{{ route('drinks.show', $drink->id) }}" class="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition duration-150">
                         @if($drink->image)
                             <img class="w-full h-48 object-cover" src="{{ asset('storage/' . $drink->image) }}" alt="{{ $drink->name }}">
                         @else
@@ -23,7 +24,7 @@
                             <h4 class="text-xl font-semibold text-gray-800">{{ $drink->name }}</h4>
                             <p class="text-gray-600 mt-2">€{{ number_format($drink->price, 2) }}</p>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>

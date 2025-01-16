@@ -16,4 +16,10 @@ class Drink extends Model
         'price',
         'image',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }
