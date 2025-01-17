@@ -23,8 +23,9 @@ composer install
 - js dependencies:
 npm install
 
--fotos symlinken
-php artisan storage:link
+
+//env bestand
+cp .env.example .env
 
 - maak een .env bestand aan en stel daar jouw database instellingen in. vb:
 DB_CONNECTION=mysql
@@ -53,12 +54,28 @@ php artisan key:generate
 - Migraties en seeders uitvoeren Voer de database-migraties en -seeders uit:
 php artisan migrate --seed
 
+-fotos symlinken
+php artisan storage:link
+
 nu kan je de ontwikkelserver starten met volgende commandos
 php-server:
 php artisan serve
 
 front-end assets:
 npm run dev
+
+EXTRA
+het kan zijn dat vite niet correct wordt gedownload met npm
+==> yarn gebruiken
+
+npm install -g yarn
+
+yarn install
+
+yarn build
+
+en normaal zou vite dan wel correct moeten geinstalleerd zijn!
+---------
 
 ----------------------------------------------------------------------------------------
 
