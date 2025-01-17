@@ -23,6 +23,9 @@ composer install
 - js dependencies:
 npm install
 
+-fotos symlinken
+php artisan storage:link
+
 - maak een .env bestand aan en stel daar jouw database instellingen in. vb:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -37,10 +40,10 @@ DB_PASSWORD=your_database_password
 MAIL_MAILER=smtp
 MAIL_HOST=sandbox.smtp.mailtrap.io
 MAIL_PORT=2525
-MAIL_USERNAME=b89c6ef46c7ea7
-MAIL_PASSWORD=712d301fcb78d3
+MAIL_USERNAME=your_mailtrap_username
+MAIL_PASSWORD=your_mailtrap_password
 MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS=noreply@jouwdomein.nl
+MAIL_FROM_ADDRESS=noreply@yourdomain.com
 MAIL_FROM_NAME="${APP_NAME}"
 MAIL_ADMIN_ADDRESS=admin@example.com
 
