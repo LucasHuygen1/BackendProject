@@ -87,12 +87,12 @@ cd extra-features-api
 - installeer de dependencies
 npm install
 
-- .env file maken (je kan dezelfde database config gebruiken als in project 1)
+- .env file maken (je kan dezelfde database config gebruiken als in project 1) (pas op username is nu user!)
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=your_database_name
-DB_USERNAME=your_database_username
+DB_USER=your_database_username
 DB_PASSWORD=your_database_password
 
 - starten
@@ -100,14 +100,6 @@ npm run start
 
 nu kan je naar http://localhost:3000/index/ gaan en de documentatie volgen
 
-
-
-///WAT HEB IK WAAR GEDAAN?
-Project 1:
--Login - register:
-breeze
-
--
 
 
 
