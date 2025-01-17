@@ -96,7 +96,7 @@ DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
 
 - starten
-npm run starte
+npm run start
 
 nu kan je naar http://localhost:3000/index/ gaan en de documentatie volgen
 
