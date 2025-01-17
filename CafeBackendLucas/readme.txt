@@ -83,6 +83,16 @@ nu kan je naar http://localhost:3000/index/ gaan en de documentatie volgen
 
 
 ///WAT HEB IK WAAR GEDAAN?
+Project 1:
+-Login - register:
+breeze
+
+-
+
+
+
+
+
 
 
 
